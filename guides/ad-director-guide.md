@@ -7,30 +7,39 @@
 - Purpose: Advertising creative direction for campaigns, shot lists, and prompt packs.
 
 ## 2) How to Install
-This project already contains the source skill at:
-- `/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director`
+These skills are installable from this repository:
+- https://github.com/cloudaipro/openclaw-agent-skills
 
-Install into an OpenClaw workspace skills directory:
+Install all skills into another OpenClaw project:
 
 ```bash
-SKILL_SRC="/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director"
-WORKSPACE_SKILLS_DIR="<your-openclaw-workspace>/skills"
-mkdir -p "$WORKSPACE_SKILLS_DIR"
-cp -R "$SKILL_SRC" "$WORKSPACE_SKILLS_DIR/"
+git clone https://github.com/cloudaipro/openclaw-agent-skills.git
+cd openclaw-agent-skills
+
+TARGET_PROJECT="<your-openclaw-project>"
+mkdir -p "$TARGET_PROJECT/skills"
+cp -R skills/* "$TARGET_PROJECT/skills/"
 ```
 
-Optional shared install for all workspaces on this machine:
+Install only this skill:
 
 ```bash
-mkdir -p "$HOME/.openclaw/skills"
-cp -R "/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director" "$HOME/.openclaw/skills/"
+git clone https://github.com/cloudaipro/openclaw-agent-skills.git
+cd openclaw-agent-skills
+
+TARGET_PROJECT="<your-openclaw-project>"
+mkdir -p "$TARGET_PROJECT/skills"
+cp -R skills/ad-director "$TARGET_PROJECT/skills/"
 ```
 
 After install, restart or reload OpenClaw so the skill registry refreshes.
 
 ## 3) Usage
+Assume you already installed the skill to:
+- `<your-openclaw-project>/skills/ad-director`
+
 Runtime entrypoint:
-- `/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director/src/index.js`
+- `<your-openclaw-project>/skills/ad-director/src/index.js`
 
 Expected input envelope:
 - `user_request` (required)
@@ -40,7 +49,10 @@ Expected input envelope:
 Run locally:
 
 ```bash
-cat > /tmp/ad-director-input.json <<'JSON'
+PROJECT_SKILLS_DIR="<your-openclaw-project>/skills"
+SKILL_ID="ad-director"
+
+cat > /tmp/${SKILL_ID}-input.json <<'JSON'
 {
   "user_request": "Build a conversion-focused ad concept from brand and audience inputs.",
   "language": "zh-TW",
@@ -48,15 +60,15 @@ cat > /tmp/ad-director-input.json <<'JSON'
 }
 JSON
 
-node "/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director/src/index.js" < /tmp/ad-director-input.json > /tmp/ad-director-output.json
-jq '.summary, .artifacts[].type' /tmp/ad-director-output.json
+node "$PROJECT_SKILLS_DIR/$SKILL_ID/src/index.js" < /tmp/${SKILL_ID}-input.json > /tmp/${SKILL_ID}-output.json
+jq '.summary, .artifacts[].type' /tmp/${SKILL_ID}-output.json
 ```
 
 Validate output:
 
 ```bash
-python3 "/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director/scripts/validate_output.py" /tmp/ad-director-output.json
-python3 "/Users/alex/data/work/my-agent-skills/openclaw-skills/ad-director/scripts/validate_creative_artifacts.py" /tmp/ad-director-output.json
+python3 "$PROJECT_SKILLS_DIR/$SKILL_ID/scripts/validate_output.py" /tmp/${SKILL_ID}-output.json
+python3 "$PROJECT_SKILLS_DIR/$SKILL_ID/scripts/validate_creative_artifacts.py" /tmp/${SKILL_ID}-output.json
 ```
 
 ## 4) Tutorial (Step by Step)

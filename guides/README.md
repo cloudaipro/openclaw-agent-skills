@@ -2,10 +2,23 @@
 
 This folder contains one user guide per skill.
 
+## Installable Source
+- https://github.com/cloudaipro/openclaw-agent-skills
+
+## Quick Install
+```bash
+git clone https://github.com/cloudaipro/openclaw-agent-skills.git
+cd openclaw-agent-skills
+
+TARGET_PROJECT="<your-openclaw-project>"
+mkdir -p "$TARGET_PROJECT/skills"
+cp -R skills/* "$TARGET_PROJECT/skills/"
+```
+
 ## Quick Start
-1. Pick a guide below.
-2. Follow the install section in that guide.
-3. Run the local tutorial command.
+1. Install skills from this repo into your target project.
+2. Pick a guide below.
+3. Run the local tutorial command from that guide.
 4. Validate output with `validate_output.py` and the skill-specific validator.
 
 ## Guides

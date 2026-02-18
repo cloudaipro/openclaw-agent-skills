@@ -7,30 +7,39 @@
 - Purpose: Inventory-aware solo cooking SOP with equipment-safe execution steps.
 
 ## 2) How to Install
-This project already contains the source skill at:
-- `/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander`
+These skills are installable from this repository:
+- https://github.com/cloudaipro/openclaw-agent-skills
 
-Install into an OpenClaw workspace skills directory:
+Install all skills into another OpenClaw project:
 
 ```bash
-SKILL_SRC="/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander"
-WORKSPACE_SKILLS_DIR="<your-openclaw-workspace>/skills"
-mkdir -p "$WORKSPACE_SKILLS_DIR"
-cp -R "$SKILL_SRC" "$WORKSPACE_SKILLS_DIR/"
+git clone https://github.com/cloudaipro/openclaw-agent-skills.git
+cd openclaw-agent-skills
+
+TARGET_PROJECT="<your-openclaw-project>"
+mkdir -p "$TARGET_PROJECT/skills"
+cp -R skills/* "$TARGET_PROJECT/skills/"
 ```
 
-Optional shared install for all workspaces on this machine:
+Install only this skill:
 
 ```bash
-mkdir -p "$HOME/.openclaw/skills"
-cp -R "/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander" "$HOME/.openclaw/skills/"
+git clone https://github.com/cloudaipro/openclaw-agent-skills.git
+cd openclaw-agent-skills
+
+TARGET_PROJECT="<your-openclaw-project>"
+mkdir -p "$TARGET_PROJECT/skills"
+cp -R skills/kitchen-commander "$TARGET_PROJECT/skills/"
 ```
 
 After install, restart or reload OpenClaw so the skill registry refreshes.
 
 ## 3) Usage
+Assume you already installed the skill to:
+- `<your-openclaw-project>/skills/kitchen-commander`
+
 Runtime entrypoint:
-- `/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander/src/index.js`
+- `<your-openclaw-project>/skills/kitchen-commander/src/index.js`
 
 Expected input envelope:
 - `user_request` (required)
@@ -40,7 +49,10 @@ Expected input envelope:
 Run locally:
 
 ```bash
-cat > /tmp/kitchen-commander-input.json <<'JSON'
+PROJECT_SKILLS_DIR="<your-openclaw-project>/skills"
+SKILL_ID="kitchen-commander"
+
+cat > /tmp/${SKILL_ID}-input.json <<'JSON'
 {
   "user_request": "Use existing ingredients and tools to output one executable meal plan.",
   "language": "zh-TW",
@@ -48,15 +60,15 @@ cat > /tmp/kitchen-commander-input.json <<'JSON'
 }
 JSON
 
-node "/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander/src/index.js" < /tmp/kitchen-commander-input.json > /tmp/kitchen-commander-output.json
-jq '.summary, .artifacts[].type' /tmp/kitchen-commander-output.json
+node "$PROJECT_SKILLS_DIR/$SKILL_ID/src/index.js" < /tmp/${SKILL_ID}-input.json > /tmp/${SKILL_ID}-output.json
+jq '.summary, .artifacts[].type' /tmp/${SKILL_ID}-output.json
 ```
 
 Validate output:
 
 ```bash
-python3 "/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander/scripts/validate_output.py" /tmp/kitchen-commander-output.json
-python3 "/Users/alex/data/work/my-agent-skills/openclaw-skills/kitchen-commander/scripts/validate_operations_artifacts.py" /tmp/kitchen-commander-output.json
+python3 "$PROJECT_SKILLS_DIR/$SKILL_ID/scripts/validate_output.py" /tmp/${SKILL_ID}-output.json
+python3 "$PROJECT_SKILLS_DIR/$SKILL_ID/scripts/validate_operations_artifacts.py" /tmp/${SKILL_ID}-output.json
 ```
 
 ## 4) Tutorial (Step by Step)
