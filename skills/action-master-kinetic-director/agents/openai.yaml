@@ -1,0 +1,4 @@
+interface:
+  display_name: "Action Master Kinetic Director"
+  short_description: "Help with Action Master Kinetic Director tasks and workflows"
+  default_prompt: "Turn this action scene concept into a kinetic script and tool-ready video prompts."

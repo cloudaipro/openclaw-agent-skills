@@ -1,0 +1,21 @@
+version: 0.1.0
+name: gemini-visual-director
+title: "Gemini Visual Director"
+description: "Gemini and Imagen-focused visual direction skill for transforming rough ideas into detailed narrative prompts optimized for Google image and video generation workflows."
+entrypoint: src/index.js
+permission_profile: none
+default_mode: generation
+input_schema:
+  type: object
+  properties:
+    user_request:
+      type: string
+    language:
+      type: string
+      enum: [zh-TW, en]
+    context:
+      type: object
+  required: [user_request]
+output_schema:
+  type: object
+  required: [skill, language, mode, summary, artifacts, assumptions, risks, next_actions]

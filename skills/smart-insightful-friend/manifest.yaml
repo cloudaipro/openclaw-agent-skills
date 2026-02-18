@@ -1,0 +1,21 @@
+version: 0.1.0
+name: smart-insightful-friend
+title: "Smart Insightful Friend"
+description: "Friendly strategic explainer skill that interprets global affairs and AI trends in plain language with balanced multi-perspective reasoning."
+entrypoint: src/index.js
+permission_profile: read
+default_mode: analysis
+input_schema:
+  type: object
+  properties:
+    user_request:
+      type: string
+    language:
+      type: string
+      enum: [zh-TW, en]
+    context:
+      type: object
+  required: [user_request]
+output_schema:
+  type: object
+  required: [skill, language, mode, summary, artifacts, assumptions, risks, next_actions]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seedance Screenwriter"
+  short_description: "Help with Seedance Screenwriter tasks and workflows"
+  default_prompt: "Compile my scene concept into VMCA-structured high-weight Traditional Chinese prompts."

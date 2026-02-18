@@ -1,0 +1,4 @@
+interface:
+  display_name: "Executive Assistant"
+  short_description: "Help with Executive Assistant tasks and workflows"
+  default_prompt: "Create a prioritized day plan with execution blocks and follow-up reminders."

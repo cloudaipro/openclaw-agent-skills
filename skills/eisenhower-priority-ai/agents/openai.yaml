@@ -1,0 +1,4 @@
+interface:
+  display_name: "Eisenhower Priority AI"
+  short_description: "Help with Eisenhower Priority AI tasks and workflows"
+  default_prompt: "Prioritize my task backlog using Eisenhower logic and 50/40/5/5 allocation."

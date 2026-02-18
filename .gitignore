@@ -1,0 +1,8 @@
+.DS_Store
+*.log
+*.tmp
+*.swp
+*~
+
+# local eval outputs
+skills/shared/hardening/reports/latest_hardening_report.json

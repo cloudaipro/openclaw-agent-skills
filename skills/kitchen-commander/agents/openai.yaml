@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kitchen Commander"
+  short_description: "Help with Kitchen Commander tasks and workflows"
+  default_prompt: "Plan a best-taste recipe using current inventory with strict safety checks."

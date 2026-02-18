@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ad Director"
+  short_description: "Help with Ad Director tasks and workflows"
+  default_prompt: "Create a full ad creative brief with visual language and shot-level prompt pack."

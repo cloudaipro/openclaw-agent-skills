@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gemini Visual Director"
+  short_description: "Help with Gemini Visual Director tasks and workflows"
+  default_prompt: "Write a Gemini and Imagen-optimized visual prompt from this rough concept."

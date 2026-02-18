@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deconstruction Master"
+  short_description: "Help with Deconstruction Master tasks and workflows"
+  default_prompt: "Deconstruct this complex issue and propose pragmatic break-through strategies."

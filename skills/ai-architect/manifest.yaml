@@ -1,0 +1,21 @@
+version: 0.1.0
+name: ai-architect
+title: "AI Architect"
+description: "Meta skill design architect for drafting new SKILL.md files, agent workflows, and reusable skill scaffolds with explicit trigger boundaries."
+entrypoint: src/index.js
+permission_profile: write
+default_mode: generation
+input_schema:
+  type: object
+  properties:
+    user_request:
+      type: string
+    language:
+      type: string
+      enum: [zh-TW, en]
+    context:
+      type: object
+  required: [user_request]
+output_schema:
+  type: object
+  required: [skill, language, mode, summary, artifacts, assumptions, risks, next_actions]

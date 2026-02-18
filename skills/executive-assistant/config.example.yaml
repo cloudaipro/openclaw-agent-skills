@@ -1,0 +1,6 @@
+provider: openai
+model: gpt-5
+temperature: 0.4
+max_output_tokens: 1200
+runtime:
+  timeout_ms: 60000

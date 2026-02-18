@@ -1,0 +1,21 @@
+version: 0.1.0
+name: eisenhower-priority-ai
+title: "Eisenhower Priority AI"
+description: "Priority execution skill that classifies tasks into Eisenhower-style urgency and importance buckets and outputs action order using a 50/40/5/5 strategy."
+entrypoint: src/index.js
+permission_profile: read
+default_mode: planning
+input_schema:
+  type: object
+  properties:
+    user_request:
+      type: string
+    language:
+      type: string
+      enum: [zh-TW, en]
+    context:
+      type: object
+  required: [user_request]
+output_schema:
+  type: object
+  required: [skill, language, mode, summary, artifacts, assumptions, risks, next_actions]

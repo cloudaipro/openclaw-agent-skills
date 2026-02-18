@@ -1,0 +1,4 @@
+interface:
+  display_name: "Film Director"
+  short_description: "Help with Film Director tasks and workflows"
+  default_prompt: "Generate a cinematic treatment with scene-by-scene camera and lighting guidance."

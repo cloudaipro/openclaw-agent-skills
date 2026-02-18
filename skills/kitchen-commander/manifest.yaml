@@ -1,0 +1,21 @@
+version: 0.1.0
+name: kitchen-commander
+title: "Kitchen Commander"
+description: "Single-person kitchen command skill for inventory-aware recipe planning, safe equipment handling, and precise SOP-style cooking instructions."
+entrypoint: src/index.js
+permission_profile: none
+default_mode: execution
+input_schema:
+  type: object
+  properties:
+    user_request:
+      type: string
+    language:
+      type: string
+      enum: [zh-TW, en]
+    context:
+      type: object
+  required: [user_request]
+output_schema:
+  type: object
+  required: [skill, language, mode, summary, artifacts, assumptions, risks, next_actions]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Insightful Friend"
+  short_description: "Help with Smart Insightful Friend tasks and workflows"
+  default_prompt: "Explain this trend in simple terms with multiple perspectives and practical implications."

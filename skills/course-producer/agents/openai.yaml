@@ -1,0 +1,4 @@
+interface:
+  display_name: "Course Producer"
+  short_description: "Help with Course Producer tasks and workflows"
+  default_prompt: "Design a course product blueprint with curriculum, pricing ladder, and funnel."

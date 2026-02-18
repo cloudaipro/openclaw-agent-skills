@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audience Profiler"
+  short_description: "Help with Audience Profiler tasks and workflows"
+  default_prompt: "Build a multi-layer audience profile with personas and purchase journey insights."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Architect"
+  short_description: "Help with AI Architect tasks and workflows"
+  default_prompt: "Design a new agent skill spec with ready-to-edit SKILL.md and runtime scaffolding."
