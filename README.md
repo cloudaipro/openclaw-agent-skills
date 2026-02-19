@@ -3,6 +3,7 @@
 Production-ready Codex/OpenClaw skill pack with:
 - 13 agent skills
 - shared runtime helpers
+- automatic skill router/chain runner
 - hardening suite (regression + prompt-injection + red-team)
 - per-skill user guides
 
@@ -95,6 +96,40 @@ python3 skills/shared/scripts/run_hardening_suite.py
 
 Expected report:
 - `skills/shared/hardening/reports/latest_hardening_report.json`
+
+## Automatic Skill Chaining (No Complex User Prompt Needed)
+
+You can submit one request and let the pack auto-decide the chain.
+
+Run auto router + chain runner:
+
+```bash
+cat > /tmp/auto-chain-input.json <<'JSON'
+{
+  "user_request": "為新產品做一支追逐感電影短片，最後要可用於投放",
+  "language": "zh-TW",
+  "context": {
+    "max_stages": 5
+  }
+}
+JSON
+
+python3 skills/shared/scripts/run_auto_chain.py --input /tmp/auto-chain-input.json --show-plan > /tmp/auto-chain-output.json
+jq '.router, .stages[].skill, .final.summary' /tmp/auto-chain-output.json
+```
+
+Optional: force a specific chain (overrides router):
+
+```json
+{
+  "context": {
+    "force_chain": ["film-director", "seedance-screenwriter", "action-master-kinetic-director", "gemini-visual-director"]
+  }
+}
+```
+
+Routing map file:
+- `skills/shared/references/auto-chain-map.json`
 
 ## Use a Skill Locally
 

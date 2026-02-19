@@ -1,0 +1,116 @@
+{
+  "templates": [
+    {
+      "id": "film-production",
+      "description": "Narrative film or chase-sequence production pipeline",
+      "keywords": [
+        "film",
+        "movie",
+        "cinematic",
+        "storyboard",
+        "scene",
+        "chase",
+        "script",
+        "電影",
+        "劇本",
+        "分鏡",
+        "追逐",
+        "動態"
+      ],
+      "chain": [
+        "film-director",
+        "seedance-screenwriter",
+        "action-master-kinetic-director",
+        "gemini-visual-director"
+      ]
+    },
+    {
+      "id": "ad-campaign",
+      "description": "Brand campaign planning and visual prompt production",
+      "keywords": [
+        "ad",
+        "advertising",
+        "campaign",
+        "commercial",
+        "cta",
+        "brand",
+        "廣告",
+        "行銷",
+        "品牌",
+        "轉換",
+        "投放"
+      ],
+      "chain": [
+        "audience-profiler",
+        "ad-director",
+        "gemini-visual-director"
+      ]
+    },
+    {
+      "id": "course-launch",
+      "description": "Course product design and launch support",
+      "keywords": [
+        "course",
+        "curriculum",
+        "funnel",
+        "cohort",
+        "learner",
+        "課程",
+        "教學",
+        "漏斗",
+        "招生"
+      ],
+      "chain": [
+        "audience-profiler",
+        "course-producer",
+        "ad-director"
+      ]
+    },
+    {
+      "id": "ops-day-planning",
+      "description": "Task prioritization followed by executable day planning",
+      "keywords": [
+        "priority",
+        "todo",
+        "task",
+        "today",
+        "schedule",
+        "待辦",
+        "優先",
+        "今天",
+        "排程"
+      ],
+      "chain": [
+        "eisenhower-priority-ai",
+        "executive-assistant"
+      ]
+    },
+    {
+      "id": "strategic-analysis",
+      "description": "Plain-language synthesis followed by root-cause deconstruction",
+      "keywords": [
+        "trend",
+        "geopolitics",
+        "analysis",
+        "deconstruct",
+        "insight",
+        "趨勢",
+        "局勢",
+        "分析",
+        "拆解",
+        "策略"
+      ],
+      "chain": [
+        "smart-insightful-friend",
+        "deconstruction-master"
+      ]
+    }
+  ],
+  "fallback": {
+    "id": "default-ai-architect",
+    "description": "Fallback to meta skill design",
+    "chain": [
+      "ai-architect"
+    ]
+  }
+}
